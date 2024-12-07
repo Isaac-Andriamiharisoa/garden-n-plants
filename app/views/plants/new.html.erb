@@ -1,6 +1,23 @@
-<%= simple_form_for plant do |f| %>
-    <%= f.input :name %>
-    <%= f.input :description %>
+<div class="form_container">
+    <%= simple_form_for plant, html: { class: 'form' } do |f| %>
+        <%= f.input :name, input_html: {class: 'form__input'} %>
+        <%= f.input :family, input_html: {class: 'form__input'} %>
+        <%= f.textarea :description, label: 'Description', class: 'form__input form__textarea' %>
+        <%= f.input :price, input_html: {class: 'form__input'}, required: true %>
+        <div class="form__tag_container">
+            <%= f.collection_check_boxes :specificity, Plant::PLANT_SPECIFICITY.to_a, :first, :last do |ff|%>
+                <div class="tag" data-controller="tag" data-tag-target="label" data-action="click->tag#toggleCheckbox">
+                    <div class="d-none">
+                        <%= ff.checkbox(data: {tag_target: 'checkbox'}, checked: false) %>
+                    </div>
+                    <%= ff.text %>
+                </div>
+            <% end %>
+        </div>
+        
+        <%= f.input :user_id, collection: User.all, input_html: {class: 'form__input'} %>
 
-    <%= f.submit 'Submit' %>
-<% end %>
+        <%= f.submit 'Submit', class: 'form__button' %>
+    <% end %>
+
+</div>
