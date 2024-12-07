@@ -1,0 +1,17 @@
+<%= link_to 'Go back', plants_path %>
+
+<h2>My plant <%= @plant.name %></h2>
+
+<p>
+    plant family: <%= @plant.family %>
+</p>
+
+<h3>Plant Owner: </h3>
+<% unless @plant.user_id %>
+    <%= @user.name %>
+<% end %>
+
+
+<h3>Description</h3>
+
+<p><%= @plant.description %></p>
