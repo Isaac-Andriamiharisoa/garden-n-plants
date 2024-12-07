@@ -1,0 +1,36 @@
+// Specific CSS for your home-page
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10% -35%;
+}
+
+.text-block {
+  flex: 1;
+  padding: 0% 5%;
+
+  h2 {
+    margin: 0 0 10%;
+    font-size: 1.5rem;
+    color: #7b7b7b;
+  }
+
+  p {
+    margin: 0;
+    line-height: 1.5;
+    color: #7b7b7b;
+  }
+}
+
+.image-block {
+  flex: 1;
+  height: 337px;
+  background-color: #ccc;
+  margin-left: 20px;
+}
