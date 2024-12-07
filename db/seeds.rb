@@ -15,14 +15,10 @@ user_names = %w[Bob Alice John]
 
 user_names.each do |name|
   new_user = User.new(name: name)
-  new_user.save
+  new_user.save!
 end
 
 plant_names.each_with_index do |name, index|
-  if index == 0
-    new_plant = Plant.new(name: name, family: 'flower', description: 'this is a flower', user_id: User.last.id)
-  else
-    new_plant = Plant.new(name: name, family: 'flower', description: 'this is a flower')
-  end
-  new_plant.save
+  new_plant = Plant.new(name: name, family: 'flower', description: 'this is a flower', user_id: User.last.id)
+  new_plant.save!
 end
