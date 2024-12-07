@@ -64,3 +64,6 @@ group :test do
 end
 
 gem "simple_form", "~> 5.3"
+gem 'sassc-rails'
+gem 'bootstrap', '~> 5.3.3'
+gem "autoprefixer-rails"
