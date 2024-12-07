@@ -18,18 +18,22 @@ class PlantsController < ApplicationController
   end
 
   def create
-    @plant = Plant.new(params[:plant])
-    if @plant.save
+    plant = Plant.new(plant_params)
+    if plant.save
       flash[:success] = "Object successfully created"
-      redirect_to @plant
+      redirect_to plant
     else
       flash[:error] = "Something went wrong"
-      render 'new'
+      render 'new', locals: {plant: plant}
     end
   end
 
   private
     def plant_id
       params[:id]
+    end
+
+    def plant_params
+      params.require(:plant).permit(%i[name description price specificity user_id family ])
     end
 end
