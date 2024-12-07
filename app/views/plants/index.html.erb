@@ -1,14 +1,48 @@
 <h1>
     All the plants
 </h1>
+<div class="container">
+  <div class="row">
+    <%# <%= render search %> %>
+  </div>
 
-<ul>
-<% plants.each do |plant| %>
-    <li>
-        <%= plant.name %>
-        <%= link_to 'see plant', plant_path(id: plant.id) %>
-    </li>
-<% end %>
+  <div class="row">
+    <ul>
+      <% plants.each do |plant| %>
+        <li>
+            <%= plant.name %>
+            <%= link_to 'see plant', plant_path(id: plant.id) %>
+        </li>
+      <% end %>
 
-<%= link_to 'New plant', new_plant_path %>
-</ul>
+    <%= link_to 'New plant', new_plant_path %>
+    </ul>
+  </div>
+
+
+
+
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <% plants.each do |plant| %>
+      <div class="col">
+        <div class="card h-100">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"><%= plant.name %></h5>
+            <div class="card-pill">
+            <span class="badge rounded-pill text-bg-light">Tag holder</span>
+            </div>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+          <div class="card-footer">
+            <button type="button" class="btn btn-dark"><%= link_to 'see plant', plant_path(id: plant.id) %></button>
+            <a href="<% link_to plant_path(id: plant.id) %>" class="btn btn-primary">See plant</a>
+          </div>
+        </div>
+      </div>
+  <% end %>
+  </div>
+
+
+
+</div>
