@@ -6,17 +6,25 @@ Rails.application.routes.draw do
   # get "up" => "rails/health#show", as: :rails_health_check
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   root 'pages#home'
   get "/plants", to: "plants#index", as: :plants
   get "/plants/:id", to: 'plants#show', as: :plant
 =======
+=======
+
+  root 'pages#home'
+>>>>>>> 63b3ab63dbf5c4cc27dc119f8dfac85a590753ad
   # get "/plants", to: "plants#index", as: :plants
   # get "/plants/:id", to: 'plants#show', as: :plant
   # get "/plants/new", to: 'plants#new', as: :new_plant
   # post "/plants/create", to: "plants#create", as: :create_plant
 
   resources :plants, only: %i[index show new create]
+<<<<<<< HEAD
 >>>>>>> 71aa2c3148f3fba2fc76a6459f4a4b46870ef195
+=======
+>>>>>>> 63b3ab63dbf5c4cc27dc119f8dfac85a590753ad
 
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
