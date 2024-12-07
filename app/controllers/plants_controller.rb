@@ -3,6 +3,12 @@ class PlantsController < ApplicationController
     plants = Plant.all
     new_plant = Plant.new
 
+    if search_params.present?
+      plants = Plant.where("name LIKE ?", "%#{search_params[:query]}%")
+    else
+      plants = Plant.all
+    end
+
     render :index, locals: {plants: plants, new_plant: new_plant }
   end
 
@@ -31,5 +37,10 @@ class PlantsController < ApplicationController
   private
     def plant_id
       params[:id]
+    end
+
+    def search_params
+      return false unless params.key?(:search)
+      params.require(:search).permit(:query)
     end
 end

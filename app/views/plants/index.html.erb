@@ -2,50 +2,44 @@
     All the plants
 </h1>
 <div class="container">
-  <div class="row">
-    <%# <%= render search %> %>
-  </div>
 
-  <div class="row">
-    <ul>
+      <%= render 'search_form' %>
+      <hr>
+
+      <% if plants.any? %>
+
+
+
+
+
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
       <% plants.each do |plant| %>
-        <li>
-            <%= plant.name %>
-            <%= link_to 'see plant', plant_path(id: plant.id) %>
-        </li>
-      <% end %>
-
-    <%= link_to 'New plant', new_plant_path %>
-    </ul>
-  </div>
-
-
-
-
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-    <% plants.each do |plant| %>
-      <div class="col">
-        <div class="card h-100">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <div class="d-flex justify-content-between">
-              <h5 class="card-title"><%= plant.name %></h5>
-              <p>Price: $--<%= plant.price %></p>
+        <div class="col">
+          <div class="card h-100">
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <h5 class="card-title"><%= plant.name %></h5>
+                <p>Price: $--<%= plant.price %></p>
+              </div>
+              <div class="card-pill">
+              <span class="badge rounded-pill text-bg-light">Tag holder</span>
+              </div>
+              <p class="card-text"><%= plant.description %> This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
             </div>
-            <div class="card-pill">
-            <span class="badge rounded-pill text-bg-light">Tag holder</span>
-            </div>
-            <p class="card-text"><%= plant.description %>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-          <div class="card-footer d-grid gap-2">
-            <%= link_to 'See plant', plant_path(id: plant.id), class: 'btn btn-dark' %>
+            <div class="card-footer d-grid gap-2">
+              <%= link_to 'See plant', plant_path(id: plant.id), class: 'btn btn-dark' %>
 
+            </div>
           </div>
         </div>
-      </div>
-  <% end %>
-  </div>
+    <% end %>
+    </div>
 
 
+<% else %>
+        <p>No plant find.</p>
+      <% end %>
 
 </div>
