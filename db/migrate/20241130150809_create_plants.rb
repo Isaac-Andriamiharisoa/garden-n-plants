@@ -1,0 +1,13 @@
+class CreatePlants < ActiveRecord::Migration[8.0]
+  def change
+    create_table :plants do |t|
+      t.string :name
+      t.string :type
+      t.integer :price
+      t.string :description
+      t.string :specificity
+
+      t.timestamps
+    end
+  end
+end
