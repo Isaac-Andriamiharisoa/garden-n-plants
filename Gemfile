@@ -68,4 +68,4 @@ gem 'sassc-rails'
 gem "bootstrap", "~> 5.2"
 gem "autoprefixer-rails"
 gem "hotwire-livereload"
-gem "font-awesome-sass", "~> 6.1"
+gem "font-awesome-sass", "~> 6.7"
